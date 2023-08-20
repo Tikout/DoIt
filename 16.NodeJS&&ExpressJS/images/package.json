@@ -1,7 +1,0 @@
-{
-  "description": "",
-  "dependencies": {
-    "ejs": "^3.1.9",
-    "formidable": "^3.5.0"
-  }
-}
