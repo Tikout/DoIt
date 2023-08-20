@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "lib":["ES6"]
+    },
+    "files": [
+        "1.Introduction.ts"
+    ]
+}
