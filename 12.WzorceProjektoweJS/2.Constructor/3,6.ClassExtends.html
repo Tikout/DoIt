@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>   
+        body {
+            background: black;
+            color: white;  
+        }
+
+        * {
+            margin: 20px 2px;
+        }
+        
+    </style>
+</head>
+<body>       
+    
+    <script>
+
+        class car {
+            constructor (name) {
+                this.name = name;
+            }
+            printInfo() {
+                console.log(this.name);
+            }
+        }
+
+        const car3 = new car("pontiac");
+
+        car3.printInfo();
+
+        class Truck extends car {
+            constructor(name, cargoType) {
+                super(name);
+                this.cargoType = cargoType;
+            }
+            cargoInfo() {
+                console.log(this.cargoType);
+            }
+            printInfo() {
+                super.printInfo();
+                this.cargoInfo();
+            }
+        }
+
+        let truck = new Truck("MAN", "Piasek");
+
+        truck.printInfo();
+
+
+    </script> 
+    
+</body>
+</html>

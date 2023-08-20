@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>   
+        body {
+            background: black;
+            color: white;  
+        }
+
+        * {
+            margin: 20px 2px;
+        }
+        
+    </style>
+</head>
+<body>       
+<script>
+function Candidate(name) {
+    this.name = name;
+
+}
+
+Candidate.prototype.notify = function(offer) {
+    console.log(this.name + " ma ofertę: " + offer);
+}
+
+function JobPortal() {
+    this.observers = [];
+    this.subscribe = function(observer) {
+        this.observers.push(observer);
+    }
+    this.unsubscribe = function(observer) {
+        var index = this.observers.findIndex( el = el === observer );
+        this.observers.splice(index, 1);
+    }
+    this.addNewOffer = function(offer) {
+        this.observers.forEach(element => element.notify(offer) );
+    }
+}
+
+let jobPortal = new JobPortal();
+let user1 = new Candidate("Kasia");
+jobPortal.subscribe(user1);
+let user2 = new Candidate("Adam");
+jobPortal.subscribe(user2);
+
+jobPortal.addNewOffer("Oferta Pracy #1");
+jobPortal.unsubscribe(user1);
+jobPortal.addNewOffer("Oferta Pracy #2");
+jobPortal.unsubscribe(user2);
+
+jobPortal.addNewOffer("Oferta Pracy #3");
+
+</script> 
+
+</body>
+</html>

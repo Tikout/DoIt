@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>   
+        body {
+            background: black;
+            color: white;  
+        }
+
+        * {
+            margin: 20px 2px;
+        }
+        
+    </style>
+</head>
+<body>       
+    <script>
+        function userFactory(name, rank){
+            return {
+                name: name,
+                rank:rank,
+                email: "user" + Math.round(Math.random()*1000) + "@example.com"
+            }
+        }
+
+        let user1 = userFactory("Ania", "user");
+
+        let admin1 = userFactory("Ola", "admin");
+
+    </script> 
+    
+</body>
+</html>

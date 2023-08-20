@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>   
+        body {
+            background: black;
+            color: white;  
+        }
+
+        * {
+            margin: 20px 2px;
+        }
+        
+    </style>
+</head>
+<body>       
+    
+    <script>
+        function Shop(name) {
+            this.name = name;
+            this.cart = [];
+        }
+
+        Shop.prototype.addToCart = function(name, price) {
+            this.cart.push({name:name, price:price});
+        }
+
+        function Pharmacy(name, addr){
+            Shop.call(this, name);
+            this.addr = addr;
+        }
+
+        Pharmacy.prototype = Object.create(Shop.prototype);
+        Pharmacy.prototype.constructor = Pharmacy;
+        Pharmacy.prototype.processCart = function(){ console.log("Process cart");}
+
+        let p = new Pharmacy("Apteka #1", "Wawa");
+        p.addToCart("Wit b", 10);
+        p.processCart();
+
+    </script> 
+    
+</body>
+</html>

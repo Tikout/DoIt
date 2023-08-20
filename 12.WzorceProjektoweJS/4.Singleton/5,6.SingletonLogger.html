@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>   
+        body {
+            background: black;
+            color: white;  
+        }
+
+        * {
+            margin: 20px 2px;
+        }
+        
+    </style>
+</head>
+<body>       
+    
+    <script>
+        let Logger = (function(){
+            let instance = null;
+            let logData = [];
+
+            function getLogLenght() { return logData.lenght; }
+
+            function getLogs() {return logData; }
+
+            function initLogger() {
+                function logMsg(msg) {
+                    logData.push( {msg: msg, date: new Date()} );
+                }
+                return {
+                    log: logMsg,
+                    getLogLenght: getLogLenght,
+                    getLogs: getLogs
+                }
+            }
+
+            return {
+                getInstance: function() {
+                    if(!instance) instance = initLogger();
+                    return instance;
+                }
+            }
+        })();
+
+        const logger = Logger.getInstance();
+
+        logger
+
+        logger.log("tak 1");
+        logger.log("tak 2");
+
+        logger.getLogLenght();
+
+    </script> 
+    
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>   
+        body {
+            background: black;
+            color: white;  
+        }
+
+        * {
+            margin: 20px 2px;
+        }
+        
+    </style>
+</head>
+<body>       
+    <script>
+        function Vehicle(name, numWheels) {
+            this.name = name;
+            this.numWheels = numWheels;
+            this.toString = function() {
+                console.log(this.name, "numWheels:" + this.numWheels);
+
+            }
+        }
+        Vehicle.prototype.toString = function() {
+                console.log(this.name, "numWheels:" + this.numWheels);
+        }
+
+        Vehicle.prototype.move = function(){
+            console.log(this.name + "moving");
+        }
+
+        function Bike(name) {
+            Vehicle.call(this, name, 2);
+            this.electricflag = false;
+            this.isElectric = function() {return this.electricflag;}
+        }
+
+        Bike.prototype = Object.create(Vehicle.prototype)
+        Bike.prototype.constructor = Bike;
+
+
+        // let bike = new Bike("rower");
+        // console.log(bike);
+
+        // bike.move();
+
+        // bike.toString();
+
+        function BikeFactory() {
+            return new Bike("rower");
+        }
+
+        function Car(name) {
+            Vehicle.call(this, name, 4);
+            this.carType = "Sedan";
+            this.setCarType = function(type) {
+                this.carType = type;
+            }
+        }
+
+        Car.prototype = Object.create(Vehicle.prototype)
+        Car.prototype.constructor = Car;
+
+
+        function CarFactory() {
+            return new Car("auto");
+        }
+
+        // console.log( CarFactory() );
+
+        // Abstract factory
+
+        const AbstractVehicleFactory = (function(){
+            let types = [];
+
+            return {
+                registerType: function(type, factory) {
+                    let v = factory();
+                    if(v.numWheels && v.name) { 
+                        types[type] = factory;
+                    }
+                },
+
+                getVehicle: function(type) {
+                    let vehicleType = types[type];
+                    if(vehicleType) {
+                        return vehicleType();
+                    } else {
+                        return null;
+                    }
+                }
+            }
+
+        })();
+
+    AbstractVehicleFactory.registerType("bike", BikeFactory);
+    AbstractVehicleFactory.registerType("car", CarFactory);
+
+    let car;
+
+    console.log(AbstractVehicleFactory.getVehicle("bike"));
+    console.log(car = AbstractVehicleFactory.getVehicle("car"));
+
+    car.move();
+
+    car.toString();
+
+    function AnimalFactory() {
+        return {
+            name: "Burek",
+            type: "dog"
+        }
+    }
+
+    AbstractVehicleFactory.registerType("dog", AnimalFactory);
+
+    
+
+
+        
+        
+
+    </script> 
+    
+</body>
+</html>

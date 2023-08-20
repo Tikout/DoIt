@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>   
+        body {
+            background: black;
+            color: white;  
+        }
+
+        * {
+            margin: 20px 2px;
+        }
+        
+    </style>
+</head>
+<body>       
+    
+    <script>
+        const Config = (function(globalObj){
+            let instance = null;
+            let privLanguage = "en";
+
+            function Configuration() {
+                this.getLanguage = function(){ return privLanguage; };
+                this.setLanguage = function(newLang){ privLanguage = newLang;}
+               
+            }
+
+            return {
+                getInstance: function() {
+                    if(!instance) instance = new Configuration();
+                    return instance;
+                }
+            }
+        })(window)
+        
+        const config = Config.getInstance();
+
+        config.getLanguage();
+
+        const config2 = Config.getInstance();
+
+        config2.getLanguage();
+
+        config.setLanguage();
+
+        config2.getLanguage();
+
+    </script> 
+    
+</body>
+</html>

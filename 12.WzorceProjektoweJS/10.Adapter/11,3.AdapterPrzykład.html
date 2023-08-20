@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>   
+        body {
+            background: black;
+            color: white;  
+        }
+
+        * {
+            margin: 20px 2px;
+        }
+        
+    </style>
+</head>
+<body>       
+<script>
+
+// stary interfejs
+function Transport(credentials) {
+    this.credentials = credentials;
+    this.send = function(addr, weight) {
+        // logika
+        return 120;
+    }
+}
+
+let addr = {country: "uk"};
+let credentials = {token: "user:12345"};
+let oldTransport = new Transport(credentials);
+let oldPrice = oldTransport.send(addr, 10);
+console.log("stara cena:" + oldPrice);
+
+
+function NewTransport() {
+    return {
+        login: function(credentials){},
+        setPriority: function(priority) {},
+        setDestination: function(addr){},
+        getPrice: function(){
+            return 110;
+        }
+    }
+}
+
+function TransportAdapter(credentials) {
+    let shipping = NewTransport();
+    shipping.login(credentials);
+
+    return {
+        send: function(addr, weight) {
+            shipping.setPriority("normal");
+            shipping.setDestination(addr);
+            return shipping.getPrice(weight);
+        }
+    }
+}
+
+let cheaperTransport = TransportAdapter(credentials);
+let newPrice = cheaperTransport.send(addr, 10);
+console.log("nowa cena:" + newPrice);
+
+</script> 
+    
+</body>
+</html>

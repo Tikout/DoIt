@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>   
+        body {
+            background: black;
+            color: white;  
+        }
+
+        * {
+            margin: 20px 2px;
+        }
+        
+    </style>
+</head>
+<body>       
+    
+    <script>
+        class DBConnection {
+            dbName = "defaultDB";
+            constructor(dbName) {
+                if(DBConnection.exists === true) {
+                    console.log("DBConnection exists");
+                    return DBConnection.instance;
+
+                }
+                DBConnection.exists = true;
+                DBConnection.instance = this;
+                this.dbName = dbName;
+
+                return this;
+            }
+
+            getFromDB(recordId) {
+                return { id: recordId, data:". . .", dbName: this.dbName};
+            }
+        }
+
+        console.dir(DBConnection)
+
+        const db = new DBConnection("companies");
+
+        db
+
+        console.dir(DBConnection);
+
+        db.getFromDB
+
+    </script> 
+    
+</body>
+</html>
