@@ -1,0 +1,28 @@
+<script>
+  /*
+            while - iteracja po tablicy, zadanie
+            1. Stwórz tablicę z wartościami od 1 do 12
+            2. Z pomocą pętli while zrób iterację po
+               tablicy.
+            3. Używając instrukcji if dodaj do siebie
+               tylko te elementy, które są większe od 5
+               Pamiętaj aby dodać zmienną w której 
+               przechowasz wynik dodawania, jej
+               wartość początkowa powinna być 1.
+        */
+
+      let tablica = [1,2,3,4,5,6,7,8,9,10,11,12];
+      let a = 0;
+      let sum = 0;
+      while (a < tablica.length) {
+            console.log( tablica[a] );
+            const el = tablica[a];
+
+            if (el > 5) sum = sum + el;
+
+            a++;
+        }
+        console.log("Sum: ", sum);
+
+
+</script>

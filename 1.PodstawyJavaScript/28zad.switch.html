@@ -1,0 +1,44 @@
+<script>
+    /*
+            Zadanie z switch
+            1. Napisz zmienną temp w której będzie 
+               temperatura powietrza
+            2. W instrukcji switch sprawdź następujące
+               przypadki:
+               - wartość -10 i -5 to informacja 
+                 w konsoli "zimno"
+               - 0 - "zamarzanie wody"
+               - 5 - "przedwiośnie"
+               - 10 - "wiosna"
+               - 20 - "lato"
+               - default - "nieznana temperatura"
+                 
+        */
+       let temp = 30;
+
+       switch (temp) {
+        case -10:
+        case -5:
+          console.log("Zimno");
+          break;
+        
+        case 0:
+          console.log("Zamarzanie wody");
+          break;
+
+        case 5:
+          console.log("Przedwiośnie");
+          break;
+
+        case 10:
+          console.log("Wiosna");
+          break;
+
+        case 20:
+          console.log("Lato");
+          break;
+
+        default: 
+        console.log("Nieznana Temperatura")
+       }
+</script>
