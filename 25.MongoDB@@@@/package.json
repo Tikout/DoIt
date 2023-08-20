@@ -1,0 +1,7 @@
+{
+  "description": "",
+  "dependencies": {
+    "mongodb": "^5.7.0",
+    "mongoose": "^7.4.2"
+  }
+}
