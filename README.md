@@ -4,4 +4,4 @@
 11 - Herotoku wymaga dodania metody płatniczej do działania... Brak zaufania w połączeniu z ostrzeżeniem prowadzącego kursu o dodatkowe koszty (nic nie mówił o tej barierze),
 13 - Błędy od samego początku pisania kodu, które są dla mnie kompletnie nie zrozumiałe
 Mimo wszystko poradziłem sobie (podstawowe założenia kursu) i aplikacja działa, postman zwraca pozytywne wyniki, razem z włączonym kontenerem w dockerze oraz pgAdminem wszyscy użytkownicy są zapisywani, tokeny generowane itd...
-Nie wiem dlaczego również nie mogę importować samego folderu z aplikacją nawet z użyciem GitHub Desktop... Importuje mi wszystko inne oprócz właśnie aplikacji... Jestem więc zmuszony do importowania pliku ZIP
+Nie wiem dlaczego nie mogę importować samego folderu z aplikacją nawet z użyciem GitHub Desktop... Importuje mi wszystko inne oprócz właśnie aplikacji... Jestem więc zmuszony do importowania pliku ZIP
